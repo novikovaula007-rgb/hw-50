@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -12,7 +15,71 @@
 <div id="app"></div>
 
 <script type="text/babel">
+  const Header = () => {
+    return (
+            <header className="header container">
+              <a href="#" className="logo">
+                <img src="https://cdn.worldvectorlogo.com/logos/smart-logo.svg" alt="Smart техника" className="logoPhoto"/>
+              </a>
+              <div className="header-contacts">
+                <span className="phone">+7 (812) 660-50-54</span>
+                <span className="phone">+7 (958) 111-95-03</span>
+                <span className="shedule">Пн-вс: с 10:00 до 21:00</span>
+              </div>
+              <div className="header-btns">
+                <a href="#" className="link-cart">Корзина</a>
+                <button className="btn-enter" type="button">Войти</button>
+              </div>
+            </header>
+    )
+  }
 
+  const Navigation = () => {
+    return (
+            <nav className="nav">
+              <div className="container nav-container">
+                <div className="nav-block block-hidden">
+                  <ul className="nav-list">
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">Рассрочка 0|0|18</a></li>
+                    <li><a href="#">Сервис и гарантия</a></li>
+                    <li><a href="#">Опт/дропшиппинг</a></li>
+                    <li><a href="#">Контакты</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+    )
+  }
+
+  const Footer = () => {
+    const currentYear = new Date().getFullYear();
+    return (
+            <footer className="footer">
+              <div className="container">
+              <div className="bottom-footer">
+                <div className="company-rights">
+                  <p className="company-rights-text">SmartТехника © {currentYear} Все права защищены</p>
+                  <p className="company-site hide-1">Разработка: websl.ru</p>
+                </div>
+                <p className="company-site hide-2">Разработка: websl.ru</p>
+              </div>
+            </div>
+  </footer>
+    )
+  }
+
+  const rootApp = document.getElementById('app');
+  const container = (
+          <>
+            <Header/>
+            <Navigation/>
+            <Footer/>
+          </>
+  )
+
+  ReactDOM.render(container, rootApp)
 </script>
 </body>
 </html>
