@@ -22,9 +22,9 @@
                 <img src="https://cdn.worldvectorlogo.com/logos/smart-logo.svg" alt="Smart техника" className="logoPhoto"/>
               </a>
               <div className="header-contacts">
-                <span className="phone">+7 (812) 660-50-54</span>
-                <span className="phone">+7 (958) 111-95-03</span>
-                <span className="shedule">Пн-вс: с 10:00 до 21:00</span>
+                <span className="phone">+7 (812) 660-50-54</span>
+                <span className="phone">+7 (958) 111-95-03</span>
+                <span className="shedule">Пн-вс: с 10:00 до 21:00</span>
               </div>
               <div className="header-btns">
                 <a href="#" className="link-cart">Корзина</a>
@@ -42,7 +42,7 @@
                   <ul className="nav-list">
                     <li><a href="#">О компании</a></li>
                     <li><a href="#">Акции</a></li>
-                    <li><a href="#">Рассрочка 0|0|18</a></li>
+                    <li><a href="#">Рассрочка</a></li>
                     <li><a href="#">Сервис и гарантия</a></li>
                     <li><a href="#">Опт/дропшиппинг</a></li>
                     <li><a href="#">Контакты</a></li>
@@ -60,7 +60,7 @@
               <div className="container">
               <div className="bottom-footer">
                 <div className="company-rights">
-                  <p className="company-rights-text">SmartТехника © {currentYear} Все права защищены</p>
+                  <p className="company-rights-text">SmartТехника © {currentYear} Все права защищены</p>
                   <p className="company-site hide-1">Разработка: websl.ru</p>
                 </div>
                 <p className="company-site hide-2">Разработка: websl.ru</p>
@@ -70,14 +70,45 @@
     )
   }
 
+  const Card = ({cardPhoto, cardDate, cardTitle, cardText}) => {
+      let currentDate = new Date();
+      currentDate = currentDate.toLocaleString()
+      let title = cardTitle ? cardTitle : "Открытие нового магазина"
+      let text = cardText ? cardText : "Разнообразный и богатый опыт говорит нам, что консультация с широким активом\n" +
+          "                      требует от нас анализа анализа существующих паттернов поведения"
+      let date = cardDate ? cardDate : currentDate
+      let photo = cardPhoto ? cardPhoto : "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSagf3pOAqBJA2te53KjgOc72qOBtvm05A5JjTB73GtrP8A1g0a"
+      return (
+          <div className="card">
+              <div className="card-photo"><img src={photo} alt="News card photo"/></div>
+              <div className="card-info">
+                  <h2 className="card-title">{title}</h2>
+                  <p className="card-text">{text}</p>
+                  <div className="card-bottom">
+                      <a href="#" className="more">Подробнее</a>
+                      <span className="date">{date}</span>
+                  </div>
+              </div>
+          </div>
+      )
+  }
+
   const rootApp = document.getElementById('app');
   const container = (
-          <>
-            <Header/>
-            <Navigation/>
-            <Footer/>
-          </>
-  )
+      <>
+          <Header/>
+          <Navigation/>
+          <main className="main-cards container">
+              <h1 className="main-title">Новости</h1>
+              <div className="cards">
+                  <Card cardPhoto="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSagf3pOAqBJA2te53KjgOc72qOBtvm05A5JjTB73GtrP8A1g0a"/>
+                  <Card cardPhoto="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSagf3pOAqBJA2te53KjgOc72qOBtvm05A5JjTB73GtrP8A1g0a"/>
+                  <Card cardPhoto="https://thumbs.dreamstime.com/b/%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8-34802664.jpg" cardTitle="Новости"/>
+              </div>
+          </main>
+          <Footer/>
+      </>
+              )
 
   ReactDOM.render(container, rootApp)
 </script>
