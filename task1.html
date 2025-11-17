@@ -6,8 +6,33 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="task1_styles.css">
 </head>
 <body>
+
 <div id="app"></div>
+
+<script type="text/babel">
+    const Film = ({name, year, filmPhotoURL}) => {
+        return (
+            <div className="film">
+                <img src={filmPhotoURL} alt={name} className="filmPhoto"/>
+                <h1>{name}</h1>
+                <span>{year}</span>
+            </div>
+        )
+    };
+
+    const rootApp = document.getElementById('app');
+    const blockFilms = (
+        <div className="filmsBlock">
+            <Film name="Requiem for a Dream" year={2000} filmPhotoURL="https://pianokafe.com/upload/iblock/807/Screenshot_1.jpg"/>
+            <Film name="Looking for Alaska" year={2019} filmPhotoURL="https://cdn01.justjaredjr.com/wp-content/uploads/headlines/2019/08/looking-alaska-official-poster.jpg"/>
+            <Film name="Interstellar" year={2014} filmPhotoURL="https://ir.ozone.ru/s3/multimedia-1/c1000/6857585497.jpg"/>
+        </div>
+    )
+
+    ReactDOM.render(blockFilms, rootApp)
+</script>
 </body>
 </html>

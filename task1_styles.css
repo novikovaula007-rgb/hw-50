@@ -1,0 +1,27 @@
+.filmsBlock {
+    display: flex;
+    font-family: Andale Mono, monospace;
+}
+
+.film {
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+    padding: 30px;
+    background-color: #f6f6f6;
+}
+
+.film h1 {
+    display: inline;
+    margin-right: 15px;
+}
+
+.filmPhoto {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: 0 auto 15px;
+}
